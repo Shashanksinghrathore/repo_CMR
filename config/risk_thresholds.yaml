@@ -1,0 +1,126 @@
+# Counterparty Risk Analysis Thresholds
+# Based on industry standards, regulatory requirements, and risk management best practices
+
+# Credit Risk Thresholds
+credit_risk:
+  # Counterparty Rating Risk Weights (Basel III inspired)
+  rating_weights:
+    AAA: 0.0
+    AA: 0.2
+    A: 0.5
+    BBB: 1.0
+    BB: 2.0
+    B: 3.0
+    CCC: 5.0
+    CC: 10.0
+    C: 15.0
+    D: 100.0
+  
+  # High Risk Rating Threshold
+  high_risk_rating_threshold: "BB"
+  
+  # Concentration Risk Thresholds
+  concentration:
+    single_counterparty_limit_pct: 25.0  # Maximum exposure to single counterparty
+    sector_concentration_limit_pct: 40.0  # Maximum exposure to single sector
+    total_exposure_limit_pct: 100.0       # Maximum total exposure
+
+# Market Risk Thresholds
+market_risk:
+  # Collateral Quality Thresholds
+  collateral:
+    min_hqla_level: "L2A"  # Minimum HQLA level for acceptable collateral
+    max_volatility_pct: 15.0  # Maximum acceptable collateral volatility
+    min_liquidity_score: 0.7  # Minimum liquidity score
+    
+  # Haircut Risk Thresholds
+  haircut:
+    max_haircut_pct: 20.0  # Maximum acceptable haircut
+    high_risk_haircut_pct: 15.0  # Haircut level triggering high risk flag
+    
+  # Specialness Risk
+  specialness:
+    max_specialness_bp: 50  # Maximum specialness in basis points
+    high_risk_specialness_bp: 30  # Specialness level triggering high risk flag
+
+# Liquidity Risk Thresholds
+liquidity_risk:
+  # Encumbrance Risk
+  encumbrance:
+    max_encumbrance_days: 30  # Maximum acceptable encumbrance period
+    high_risk_encumbrance_days: 14  # Encumbrance period triggering high risk
+    
+  # Margin Call Risk
+  margin_calls:
+    max_mild_margin_call_musd: 10.0  # Maximum mild margin call exposure
+    max_severe_margin_call_musd: 25.0  # Maximum severe margin call exposure
+    high_risk_margin_call_musd: 5.0  # Margin call level triggering high risk
+
+# Operational Risk Thresholds
+operational_risk:
+  # Wrong Way Risk
+  wrong_way_risk:
+    max_wrong_way_exposure_pct: 10.0  # Maximum wrong way risk exposure
+    
+  # Cross Currency Risk
+  cross_currency:
+    max_cross_currency_exposure_pct: 15.0  # Maximum cross currency exposure
+    
+  # CCP Clearing
+  ccp_clearing:
+    min_ccp_cleared_pct: 80.0  # Minimum percentage that should be CCP cleared
+
+# Term Risk Thresholds
+term_risk:
+  # Maturity Risk
+  maturity:
+    max_term_days: 365  # Maximum acceptable term
+    high_risk_term_days: 90  # Term length triggering high risk
+    
+  # Open Repo Risk
+  open_repo:
+    max_open_repo_exposure_pct: 20.0  # Maximum open repo exposure
+
+# Stress Testing Thresholds
+stress_testing:
+  # Stress Factors
+  stress_factors:
+    mild_stress: 1.5  # Mild stress multiplier
+    severe_stress: 2.5  # Severe stress multiplier
+    
+  # Shortfall Risk
+  shortfall:
+    max_mild_shortfall_musd: 5.0  # Maximum mild stress shortfall
+    max_severe_shortfall_musd: 15.0  # Maximum severe stress shortfall
+    high_risk_shortfall_musd: 2.0  # Shortfall level triggering high risk
+
+# Composite Risk Scoring
+composite_risk:
+  # Risk Score Weights
+  weights:
+    credit_risk: 0.35
+    market_risk: 0.25
+    liquidity_risk: 0.20
+    operational_risk: 0.15
+    term_risk: 0.05
+    
+  # Risk Score Thresholds
+  score_thresholds:
+    low_risk: 0.3
+    medium_risk: 0.6
+    high_risk: 0.8
+    critical_risk: 0.9
+
+# Reporting Thresholds
+reporting:
+  # Alert Thresholds
+  alerts:
+    daily_alert_threshold: 0.7  # Daily risk score threshold for alerts
+    weekly_alert_threshold: 0.6  # Weekly risk score threshold for alerts
+    monthly_alert_threshold: 0.5  # Monthly risk score threshold for alerts
+    
+  # Escalation Thresholds
+  escalation:
+    immediate_escalation: 0.9  # Immediate escalation threshold
+    senior_management_escalation: 0.8  # Senior management escalation threshold
+    risk_committee_escalation: 0.7  # Risk committee escalation threshold
